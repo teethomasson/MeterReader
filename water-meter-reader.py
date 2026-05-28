@@ -71,7 +71,6 @@ def parse_rtlamr_output(line):
                             # Extract consumption value
                             if 'Consumption' in data:
                                 raw_value = str(data['Consumption'])
-                                # Handle CCF format: 5183180 should be 518.3180
                                 if len(raw_value) >= 7 and not '.' in raw_value:
                                     # Insert decimal after first 3 digits for CCF (hundreds)
                                     data['Consumption'] = float(f"{raw_value[:-6]}.{raw_value[-6:]}")
